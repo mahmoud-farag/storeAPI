@@ -1,5 +1,5 @@
 import { connectToDB } from "../db/connectToDB.js"
-import { asyncWrapper } from "./AsyncWrapper.js";
+import { asyncWrapper } from "./asyncWrapper.js";
 
 const startApp = asyncWrapper(async(app, port)=>{
 
