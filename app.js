@@ -5,9 +5,8 @@ import dotenv from 'dotenv';
 import { homeRoute } from './middleware/homeRoute.js';
 import { notFound } from './middleware/not-found.js';
 import { startApp } from './middleware/startApp.js';
-// import { productRoute } from './routes/productRoute.js';
+import { productRoute } from './routes/productRoute.js';
 import { errorHandlerMiddleware } from './middleware/error-handler.js';
-
 
 // extra security packages
 import helmet from 'helmet';
@@ -17,7 +16,6 @@ import  rateLimit from 'express-rate-limit';
 
 
 // sawgger docs 
-
 import swaggerUI from 'swagger-ui-express';
 import YAML from 'yamljs';
 
@@ -49,7 +47,7 @@ app.get('/', (req,res)=>{
 
 app.use('/api-docs',swaggerUI.serve,swaggerUI.setup((swaggerDocument)));
 app.get('/',homeRoute)
-// app.use('/api/v1/products', productRoute)
+app.use('/api/v1/products', productRoute)
 
 app.use(notFound)
 app.use(errorHandlerMiddleware)
