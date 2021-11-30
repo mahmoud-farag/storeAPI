@@ -1,7 +1,7 @@
 import {asyncWrapper} from '../middleware/asyncWrapper.js';
 import { Product } from '../models/product.js';
 
-const getProductsStatic = asyncWrapper(async(req,res,next)=>{
+const getProductsStatic = asyncWrapper(async(req,res)=>{
     
     // const name = {$regex:/req.query.name/,$options:'i'}
     const products =  await Product.find().select('name price');
