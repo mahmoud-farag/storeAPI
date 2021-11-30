@@ -1,17 +1,17 @@
-import {asyncWrapper} from '../middleware/asyncWrapper.js';
+// import {asyncWrapper} from '../middleware/asyncWrapper.js';
 import { Product } from '../models/product.js';
 
-const getProductsStatic = asyncWrapper(async(req,res)=>{
+const getProductsStatic = async(req,res)=>{
     
     // const name = {$regex:/req.query.name/,$options:'i'}
     const products =  await Product.find().select('name price');
     res.send({products, NumItems: products.length});
     
-});
+};
 
 
-const getAllProducts = asyncWrapper(async(req,res, next)=>{
-  const {name,featured, company,fields,sort, numricFilter}= req.query;
+const getAllProducts = async(req,res, next)=>{
+  try{const {name,featured, company,fields,sort, numricFilter}= req.query;
   const queryObject ={};
   if(name)
         queryObject.name ={$regex:name,$options:'i'}
@@ -74,7 +74,11 @@ const getAllProducts = asyncWrapper(async(req,res, next)=>{
        const products =  await result;
 
        res.status(200).send({products, NumItems:products.length});
-});
+
+  }catch(error){
+     res.status(501).json(error.message)
+  }
+};
 
 
 
