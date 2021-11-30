@@ -4,7 +4,8 @@ const asyncWrapper = (func)=>{
         try {
             await func(req,res,next);
         } catch (error) {
-            next(error)
+            res.status(501).json(error.message)
+            // next(error)
         }
        
     }
