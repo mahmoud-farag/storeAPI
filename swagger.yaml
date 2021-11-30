@@ -1,0 +1,66 @@
+openapi: 3.0.0
+info:
+  title: STORE__API
+  contact: {}
+  version: '1.0'
+servers:
+- url: https://searchengin-api.herokuapp.com/api/v1
+  variables: {}
+paths:
+  /products:
+    get:
+      tags:
+      - engine
+      summary: SearchEngin route
+      operationId: SearchEnginroute
+      parameters:
+      - name: sort
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: price
+      - name: fields
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: name, price
+      - name: page
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 4
+      - name: limit
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 7
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+security:
+- {}
+tags:
+- name: Misc
+  description: ''
+- name: engine
+  description: ''
