@@ -17,7 +17,6 @@ paths:
       - name: sort
         in: query
         description: ''
-        required: true
         style: form
         explode: true
         schema:
@@ -26,26 +25,48 @@ paths:
       - name: fields
         in: query
         description: ''
-        required: true
         style: form
         explode: true
         schema:
           type: string
           example: name, price
+      - name: name
+        in: query
+        description: ''
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: simple chair
+      - name: company
+        in: query
+        description: ''
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: nikea
       - name: page
         in: query
         description: ''
-        required: true
         style: form
         explode: true
         schema:
           type: integer
           format: int32
           example: 4
+      - name: numricFilter
+        in: query
+        description: ''
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: price>100
       - name: limit
         in: query
         description: ''
-        required: true
         style: form
         explode: true
         schema:
