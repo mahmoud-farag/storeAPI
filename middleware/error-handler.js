@@ -1,7 +1,7 @@
-const errorHandlerMiddleware = (error, req, res, next) => {
+const errorHandlerMiddleware = (error, req, res, ) => {
   console.log(error.message)
-   res.status(500).send({ msg: 'Something went wrong, please try again' })
-   next(); 
+   res.status(500).send({ msg: error.message})
+   
 }
 
 export {errorHandlerMiddleware}

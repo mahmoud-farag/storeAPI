@@ -6,6 +6,7 @@ import { homeRoute } from './middleware/homeRoute.js';
 import { notFound } from './middleware/not-found.js';
 import { startApp } from './middleware/startApp.js';
 import { productRoute } from './routes/productRoute.js';
+import { errorHandlerMiddleware } from './middleware/error-handler.js';
 
 const app = express(),
       PORT = process.env.PORT || 5000;
@@ -17,7 +18,7 @@ app.get('/',homeRoute)
 app.use('/api/v1/products', productRoute)
 
 app.use(notFound)
-// app.use(errorHandlerMiddleware)
+app.use(errorHandlerMiddleware)
 
 // fire your app 
 startApp(app, PORT)
