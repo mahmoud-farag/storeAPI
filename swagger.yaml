@@ -46,6 +46,14 @@ paths:
         schema:
           type: string
           example: nikea
+      - name: featured
+        in: query
+        description: ''
+        style: form
+        explode: true
+        schema:
+          type: boolean
+          example: true
       - name: page
         in: query
         description: ''
@@ -61,7 +69,7 @@ paths:
         style: form
         explode: true
         schema:
-          type: integer
+          type: string
           format: int32
           example: price>100
       - name: limit
@@ -81,7 +89,7 @@ paths:
 security:
 - {}
 tags:
-- name: Misc
+- name: Search Engin 
   description: ''
 - name: engine
   description: ''
